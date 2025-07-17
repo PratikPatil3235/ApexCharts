@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Apex Pie Chart</title>
+  </head>
+  <body>
+    <h1>Pie Chart</h1>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+      "
+    >
+      <div id="pie-chart"></div>
+    </div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "pie",
+          height: 380,
+          width: 380,
+        },
+        series: [23, 11, 54, 72, 12],
+        labels: ["Apple", "Mango", "Banana", "Papaya", "Orange"],
+      };
+
+      const chart = new ApexCharts(
+        document.querySelector("#pie-chart"),
+        options
+      );
+      chart.render();
+    </script>
+  </body>
+</html>

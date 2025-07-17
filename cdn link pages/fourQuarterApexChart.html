@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Apex Charts - 4 Quadrants</title>
+  </head>
+  <body>
+    <h1>4-Quadrant Chart with ApexCharts</h1>
+    <div id="chart" style="height: 600px; width: 800px"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "radar",
+        },
+        series: [
+          {
+            name: "Example Data",
+            data: [
+              { x: -5, y: -20 },
+              { x: -3, y: -10 },
+              { x: -1, y: 5 },
+              { x: 0, y: 0 },
+              { x: 2, y: 10 },
+              { x: 4, y: 20 },
+              { x: 6, y: -15 },
+            ],
+          },
+        ],
+        xaxis: {
+          type: "numric",
+          tickAmount: 10,
+        },
+        yaxis: {
+          tickAmount: 10,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Apex Charts</title>
+  </head>
+  <body>
+    <h1>Apex Charts</h1>
+    <div>
+      <!-- <div id="chart"></div> -->
+      <div id="responsive-chart"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var options = {
+    chart: {
+      type: "line",
+      width: "50%",
+    },
+
+    series: [
+      {
+        name: "sales",
+        data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
+      },
+      {
+        name: "revenue",
+        data: [20, 30, 25, 40, 45, 55, 65, 85, 100],
+      },
+    ],
+    xaxis: {
+      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+    },
+    //it is like a mediaquery which is used...
+    responsive: [
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            width: "100%",
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+      {
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 300,
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
+
+  var chart = new ApexCharts(document.getElementById("chart"), options);
+  chart.render();
+</script>
+
+<script>
+  var options = {
+    chart: {
+      width: "50%",
+      height: 380,
+      type: "bar",
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      width: 1,
+      colors: ["#fff"],
+    },
+    series: [
+      {
+        data: [44, 55, 41, 64, 22, 43, 21, 34],
+      },
+      {
+        data: [53, 32, 33, 52, 13, 44, 32, 45],
+      },
+    ],
+    xaxis: {
+      categories: [
+        "Korea",
+        "Canada",
+        "Poland",
+        "Italy",
+        "France",
+        "Japan",
+        "China",
+        "India"
+      ],
+    },
+    legend: {
+      position: "right",
+      verticalAlign: "top",
+      containerMargin: {
+        left: 35,
+        right: 60,
+      },
+    },
+    responsive: [
+      {
+        breakpoint: 1000,
+        options: {
+          plotOptions: {
+            bar: {
+              horizontal: false,
+            },
+          },
+          legend: {
+            position: "bottom",
+          },
+        },
+      },
+    ],
+  };
+
+  var chart = new ApexCharts(
+    document.querySelector("#responsive-chart"),
+    options
+  );
+
+  chart.render();
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Apex Charts</title>
+  </head>
+  <body>
+    <h1>Apex Charts</h1>
+    <div id="chart"></div>
+  </body>
+</html>
+
+<script>
+  var options = {
+    chart: {
+      type: "line",
+      width: "80%", // better width for understanding
+      animations: {
+        enabled: true,
+        speed: 800,
+        animateGradually: {
+          enabled: true,
+          delay: 150,
+        },
+        dynamicAnimation: {
+          enabled: true,
+          speed: 350,
+        },
+      },
+    },
+    series: [
+      {
+        name: "Sales",
+        data: [
+          { x: "Apple", y: 54 },
+          { x: "Orange", y: 66 },
+          { x: "Mango", y: 32 },
+          { x: "Peer", y: 20 },
+          { x: "Cherry", y: 45 },
+        ],
+      },
+      {
+        name: "Revenue",
+        data: [
+          { x: "Apple", y: 40 },
+          { x: "Orange", y: 55 },
+          { x: "Mango", y: 30 },
+          { x: "Peer", y: 25 },
+          { x: "Cherry", y: 38 },
+        ],
+      },
+    ],
+    xaxis: {
+      type: "category",
+      title: {
+        text: "Fruits",
+      },
+    },
+    yaxis: {
+      title: {
+        text: "Amount",
+      },
+    },
+    legend: {
+      position: "top",
+    },
+  };
+
+  var chart = new ApexCharts(document.getElementById("chart"), options);
+
+  chart.render();
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+      #chart {
+        max-width: 650px;
+        margin: 35px auto;
+      }
+    </style>
+    <title>Apex Charts</title>
+  </head>
+  <body>
+    <div style="margin: 10px">
+      <h1>Apex Charts</h1>
+      <div id="chart"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var options = {
+    chart: {
+      height: 380,
+      width: "100%",
+      type: "area",
+      animations: {
+        initialAnimation: {
+          enabled: false,
+        },
+      },
+    },
+    series: [
+      {
+        name: "Series 1",
+        data: [
+          {
+            x: "02-10-2017 GMT",
+            y: 34,
+          },
+          {
+            x: "02-11-2017 GMT",
+            y: 43,
+          },
+          {
+            x: "02-12-2017 GMT",
+            y: 31,
+          },
+          {
+            x: "02-13-2017 GMT",
+            y: 43,
+          },
+          {
+            x: "02-14-2017 GMT",
+            y: 33,
+          },
+          {
+            x: "02-15-2017 GMT",
+            y: 52,
+          },
+        ],
+      },
+    ],
+    xaxis: {
+      type: "datetime",
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+  chart.render();
+</script>
