@@ -18,9 +18,10 @@
         data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380],
       },
     ],
-    chart: {
+    chart: {  
       type: "bar",
       height: 350,
+      width:"50%",
     },
     plotOptions: {
       bar: {
@@ -30,7 +31,7 @@
       },
     },
     dataLabels: {
-      enabled: false,
+      enabled: true,
     },
     xaxis: {
       categories: [
@@ -51,3 +52,4 @@
   var chart = new ApexCharts(document.querySelector("#chart"), options);
   chart.render();
 </script>
+  
