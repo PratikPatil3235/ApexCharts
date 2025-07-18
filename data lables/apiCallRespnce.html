@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexChart from API</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      const fetchData = () =>
+        new Promise((resolve) => {
+          resolve([
+            { name: "Alice", score: 88 },
+            { name: "Bob", score: 76 },
+            { name: "Charlie", score: 92 },
+          ]);
+        });
+
+      fetchData().then((data) => {
+        const labels = data.map((item) => item.name);
+        const scores = data.map((item) => item.score);
+
+        const options = {
+          chart: {
+            type: "bar",
+            width: "50%",
+            height: 350,
+          },
+          plotOptions: {
+            bar: {
+              columnWidth: "30%", 
+            },
+          },
+          series: [
+            {
+              name: "Score",
+              data: scores,
+            },
+          ],
+          xaxis: {
+            categories: labels,
+          },
+        };
+
+        const chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      });
+    </script>
+  </body>
+</html>
