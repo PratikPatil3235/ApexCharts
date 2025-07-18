@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Brush Chart ...</title>
+  </head>
+  <body>
+  <div id="chart-line2"></div> 
+  <div id="chart-line"></div>
+</body>
+
+</html>
+<script>
+    var data1 = [
+  [new Date("2017-04-01").getTime(), 34],
+  [new Date("2017-04-02").getTime(), 43],
+  [new Date("2017-04-03").getTime(), 31],
+  [new Date("2017-04-04").getTime(), 43],
+  [new Date("2017-04-05").getTime(), 33],
+  [new Date("2017-04-06").getTime(), 52],
+  [new Date("2017-04-07").getTime(), 44],
+  [new Date("2017-04-08").getTime(), 32],
+  [new Date("2017-04-09").getTime(), 55],
+  [new Date("2017-04-10").getTime(), 41],
+];
+
+var data2 = [
+  [new Date("2017-04-01").getTime(), 50],
+  [new Date("2017-04-02").getTime(), 60],
+  [new Date("2017-04-03").getTime(), 40],
+  [new Date("2017-04-04").getTime(), 80],
+  [new Date("2017-04-05").getTime(), 20],
+  [new Date("2017-04-06").getTime(), 70],
+  [new Date("2017-04-07").getTime(), 30],
+  [new Date("2017-04-08").getTime(), 60],
+  [new Date("2017-04-09").getTime(), 20],
+  [new Date("2017-04-10").getTime(), 90],
+];
+
+  var options = {
+    series: [
+      {
+        name: "Flies",
+        data: data1,
+      },
+      {
+        name: "Spiders",
+        data: data2,
+      },
+    ],
+    chart: {
+      id: "chart2",
+      type: "line",
+      height: 230,
+      zoom:{
+        enabled:true,
+      },
+      dropShadow: {
+        enabled: true,
+        enabledOnSeries: [1],
+      },
+      toolbar: {
+        autoSelected: "pan",
+        show: false,
+      },
+    },
+    colors: ["#008FFB", "#00E396"],
+    stroke: {
+      width: 3,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      width: [2, 6],
+      curve: ["straight", "monotoneCubic"],
+    },
+    fill: {
+      opacity: [1, 0.75],
+    },
+    markers: {
+      size: 0,
+    },
+    yaxis: [
+      {
+        seriesName: "Flies",
+        axisTicks: {
+          show: true,
+          color: "#008FFB",
+        },
+        axisBorder: {
+          show: true,
+          color: "#008FFB",
+        },
+        labels: {
+          style: {
+            colors: "#008FFB",
+          },
+        },
+        title: {
+          text: "Flies",
+          style: {
+            color: "#008FFB",
+          },
+        },
+      },
+      {
+        seriesName: "Spiders",
+        opposite: true,
+        axisTicks: {
+          show: true,
+          color: "#00E396",
+        },
+        axisBorder: {
+          show: true,
+          color: "#00E396",
+        },
+        labels: {
+          style: {
+            colors: "#00E396",
+          },
+        },
+        title: {
+          text: "Spiders",
+          style: {
+            color: "#00E396",
+          },
+        },
+      },
+    ],
+    xaxis: {
+      type: "datetime",
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart-line2"), options);
+  chart.render();
+
+  var optionsLine = {
+    series: [
+      {
+        name: "Flies",
+        data: data1,
+      },
+      {
+        name: "Spiders",
+        data: data2,
+      },
+    ],
+    chart: {
+      id: "chart1",
+      height: 130,
+      type: "area",
+      brush: {
+        target: "chart2",
+        enabled: true,
+      },
+      selection: {
+        enabled: true,
+        xaxis: {
+          min: new Date("24 April 2017").getTime(),
+          max: new Date("29 May 2017").getTime(),
+        },
+      },
+    },
+    colors: ["#008FFB", "#00E396"],
+    stroke: {
+      width: [1, 3],
+      curve: ["straight", "monotoneCubic"],
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        opacityFrom: 0.91,
+        opacityTo: 0.1,
+      },
+    },
+    xaxis: {
+      type: "datetime",
+      tooltip: {
+        enabled: false,
+      },
+    },
+    yaxis: {
+      max: 100,
+      tickAmount: 2,
+    },
+  };
+
+  var chartLine = new ApexCharts(
+    document.querySelector("#chart-line"),
+    optionsLine
+  );
+  chartLine.render();
+</script>
