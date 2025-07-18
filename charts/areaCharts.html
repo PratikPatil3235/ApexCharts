@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Area Chart...</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+  </body>
+</html>
+<script>
+  function generateDayWiseTimeSeries(baseTime, count, range) {
+    var series = [];
+    for (var i = 0; i < count; i++) {
+      var x = baseTime + i * 86400000;
+      var y =
+        Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+      series.push([x, y]);
+    }
+    return series;
+  }
+  var options = {
+    series: [
+      {
+        name: "South",
+        data: generateDayWiseTimeSeries(
+          new Date("11 Feb 2017 GMT").getTime(),
+          20,
+          {
+            min: 10,
+            max: 60,
+          }
+        ),
+      },
+      {
+        name: "North",
+        data: generateDayWiseTimeSeries(
+          new Date("11 Feb 2017 GMT").getTime(),
+          20,
+          {
+            min: 10,
+            max: 20,
+          }
+        ),
+      },
+      {
+        name: "Central",
+        data: generateDayWiseTimeSeries(
+          new Date("11 Feb 2017 GMT").getTime(),
+          20,
+          {
+            min: 10,
+            max: 15,
+          }
+        ),
+      },
+    ],
+    chart: {
+      type: "area",
+      height: 350,
+      stacked: true,
+      events: {
+        selection: function (chart, e) {
+          console.log(new Date(e.xaxis.min));
+        },
+      },
+    },
+    colors: ["#008FFB", "#00E396", "#CED4DC"],
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "stepline",
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        opacityFrom: 0.6,
+        opacityTo: 0.8,
+      },
+    },
+    legend: {
+      position: "top",
+      horizontalAlign: "left",
+    },
+    xaxis: {
+      type: "datetime",
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+</script>
