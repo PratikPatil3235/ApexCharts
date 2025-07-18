@@ -1,0 +1,12 @@
+chart: {
+    background: '#fff'
+}
+
+chart: {
+    brush: {
+        enabled: false,
+        target: undefined,
+        autoScaleYaxis: false
+      }
+  }
+  

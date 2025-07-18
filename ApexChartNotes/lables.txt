@@ -1,0 +1,1 @@
+labels: ['Apples', 'Oranges', 'Berries', 'Grapes'];

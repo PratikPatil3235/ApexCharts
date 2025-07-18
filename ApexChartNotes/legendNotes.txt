@@ -1,0 +1,48 @@
+Properties used in legend...:-
+
+legend: {
+      show: true,
+      showForSingleSeries: false,
+      showForNullSeries: true,
+      showForZeroSeries: true,
+      position: 'bottom',
+      horizontalAlign: 'center', 
+      floating: false,
+      fontSize: '14px',
+      fontFamily: 'Helvetica, Arial',
+      fontWeight: 400,
+      formatter: undefined,
+      inverseOrder: false,
+      width: undefined,
+      height: undefined,
+      tooltipHoverFormatter: undefined,
+      customLegendItems: [],
+      clusterGroupedSeries: true,
+      clusterGroupedSeriesOrientation: 'vertical',
+      offsetX: 0,
+      offsetY: 0,
+      labels: {
+          colors: undefined,
+          useSeriesColors: false
+      },
+      markers: {
+          size: 7,
+          shape: undefined,
+          strokeWidth: 1,
+          fillColors: undefined,
+          customHTML: undefined,
+          onClick: undefined,
+          offsetX: 0,
+          offsetY: 0
+      },
+      itemMargin: {
+          horizontal: 5,
+          vertical: 0
+      },
+      onItemClick: {
+          toggleDataSeries: true
+      },
+      onItemHover: {
+          highlightDataSeries: true
+      },
+  }

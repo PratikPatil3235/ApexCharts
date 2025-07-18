@@ -1,0 +1,13 @@
+states: {
+    hover: {
+        filter: {
+            type: 'lighten',
+        }
+    },
+    active: {
+        allowMultipleDataPointsSelection: false,
+        filter: {
+            type: 'darken',
+        }
+    },
+}

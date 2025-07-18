@@ -1,0 +1,14 @@
+animations: {
+        enabled: true,
+        speed: 800,
+        animateGradually: {
+            enabled: true,
+            delay: 150
+        },
+        dynamicAnimation: {
+            enabled: true,
+            speed: 350
+        }
+    }
+
+// This Propertie used inside chart...

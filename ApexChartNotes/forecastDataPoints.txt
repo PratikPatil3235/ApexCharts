@@ -1,0 +1,6 @@
+forecastDataPoints: {
+  count: 0,
+  fillOpacity: 0.5,
+  strokeWidth: undefined,
+  dashArray: 4,
+}

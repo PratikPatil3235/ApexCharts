@@ -1,0 +1,5 @@
+
+responsive: [{
+    breakpoint: undefined,//number of screen size ...
+    options: {},
+}]

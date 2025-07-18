@@ -1,0 +1,20 @@
+ chart: {
+      zoom: {
+          enabled: true,
+          type: 'x',  
+          autoScaleYaxis: false,  
+          allowMouseWheelZoom: true,  
+          zoomedArea: {
+            fill: {
+              color: '#90CAF9',
+              opacity: 0.4
+            },
+            stroke: {
+              color: '#0D47A1',
+              opacity: 0.4,
+              width: 1
+            }
+          }
+      }
+  }
+  

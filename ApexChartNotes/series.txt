@@ -1,0 +1,9 @@
+series: [{
+  name: "series-a",
+  data: [13, 12, 33, 53, 65],
+  type: "line", // optional - only required when a combo chart (line/area/column) is created
+  color: "#EE6D7A", // when you want to apply series colour directly here
+  hidden: false, // in a multi-series chart, you can hide certain series initially which can be later toggled via legend.
+  group: undefined, // when you want to group certain series in a grouped stacked chart (works in bars/columns)
+  zIndex: 1 // this option only affects line and area charts
+}]
