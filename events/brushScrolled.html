@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Brush Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div id="main-chart"></div>
+    <div id="brush-chart"></div>
+
+    <script>
+      const data = Array.from({ length: 100 }, (_, i) => ({
+        x: new Date(2024, 0, i + 1),
+        y: Math.floor(Math.random() * 100),
+      }));
+
+      const mainChartOptions = {
+        chart: {
+          id: "main",
+          height: 300,
+          type: "line",
+        },
+        series: [{ name: "Sales", data }],
+        xaxis: { type: "datetime" },
+      };
+
+      const brushChartOptions = {
+        chart: {
+          id: "brush",
+          height: 130,
+          type: "area",
+          brush: {
+            target: "main",
+            enabled: true,
+          },
+          selection: {
+            enabled: true,
+            xaxis: {
+              min: new Date(2024, 0, 10).getTime(),
+              max: new Date(2024, 0, 30).getTime(),
+            },
+          },
+          events: {
+            brushScrolled: function (chartContext, { xaxis }) {
+              console.log("🟦 Brush Scrolled!", xaxis.min, xaxis.max);
+            },
+          },
+        },
+        series: [{ name: "Sales", data }],
+        xaxis: { type: "datetime" },
+        yaxis: { show: false },
+      };
+
+      const mainChart = new ApexCharts(
+        document.querySelector("#main-chart"),
+        mainChartOptions
+      );
+      const brushChart = new ApexCharts(
+        document.querySelector("#brush-chart"),
+        brushChartOptions
+      );
+
+      mainChart.render();
+      brushChart.render();
+    </script>
+  </body>
+</html>
