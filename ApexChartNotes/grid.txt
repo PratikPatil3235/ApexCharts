@@ -1,0 +1,33 @@
+grid: {
+  show: true, // Show/hide the entire grid
+  borderColor: '#90A4AE', // Color of the outer grid border
+  strokeDashArray: 0, // Dotted line (use 4 or 5 for dashed lines)
+  position: 'back', // 'back' or 'front' of data series
+
+  xaxis: {
+    lines: {
+      show: false // Show/hide vertical grid lines
+    }
+  },
+  yaxis: {
+    lines: {
+      show: false // Show/hide horizontal grid lines
+    }
+  },
+
+  row: {
+    colors: undefined, // Alternating row background colors. Example: ['#f3f3f3', 'transparent']
+    opacity: 0.5       // Opacity of those row colors
+  },
+  column: {
+    colors: undefined, // Same for vertical columns
+    opacity: 0.5
+  },
+
+  padding: {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0 // Adds space between grid and chart edges
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Grid Config Demo</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+        },
+        series: [
+          {
+            name: "Sales",
+            data: [10, 20, 30, 40, 50],
+          },
+        ],
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+        grid: {
+          show: true,
+          borderColor: "#90A4AE",
+          strokeDashArray: 4,
+          position: "back",
+          xaxis: {
+            lines: {
+              show: true,
+            },
+          },
+          yaxis: {
+            lines: {
+              show: true,
+            },
+          },
+          row: {
+            colors: ["#f3f3f3", "transparent"], // alternate row colors
+            opacity: 0.5,
+          },
+          column: {
+            colors: ["#f9f9f9", "transparent"], // alternate column colors
+            opacity: 0.5,
+          },
+          padding: {
+            top: 10,
+            right: 20,
+            bottom: 10,
+            left: 20,
+          },
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
