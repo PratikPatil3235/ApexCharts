@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - Data Point Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p id="hoverStatus">Hover over a point</p>
+    <p id="clickStatus">Click a point to see info</p>
+    <div id="chart"></div>
+
+    <script>
+      const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+      const values = [12, 25, 30, 18, 40];
+
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          events: {
+            dataPointMouseEnter: function (event, chartContext, config) {
+              const category = categories[config.dataPointIndex];
+              const value = values[config.dataPointIndex];
+              document.getElementById(
+                "hoverStatus"
+              ).textContent = `🟡 Hovered on: ${category} → ${value}`;
+            },
+            markerClick: function (event, chartContext, config) {
+              const category = categories[config.dataPointIndex];
+              const value = values[config.dataPointIndex];
+              document.getElementById(
+                "clickStatus"
+              ).textContent = `✅ Clicked on: ${category} → ${value}`;
+            },
+          },
+        },
+        series: [
+          {
+            name: "Revenue",
+            data: values,
+          },
+        ],
+        xaxis: {
+          categories: categories,
+        },
+        markers: {
+          size: 6,
+        },
+        tooltip: {
+          enabled: true,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
