@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Localization ...</title>
+    <style>
+      #chart {
+        max-width: 650px;
+        margin: 35px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+  </body>
+</html>
+<script>
+  Apex.chart = {
+    locales: [
+      {
+        name: "el",
+        options: {
+          months: [
+            "Ιανουάριος",
+            "Φεβρουάριος",
+            "Μάρτιος",
+            "Απρίλιος",
+            "Μάιος",
+            "Ιούνιος",
+            "Ιούλιος",
+            "Αύγουστος",
+            "Σεπτέμβριος",
+            "Οκτώβριος",
+            "Νοέμβριος",
+            "Δεκέμβριος",
+          ],
+          shortMonths: [
+            "Ιαν",
+            "Φευ",
+            "Μαρ",
+            "Απρ",
+            "Μάι",
+            "Ιουν",
+            "Ιουλ",
+            "Αυγ",
+            "Σεπ",
+            "Οκτ",
+            "Νοε",
+            "Δεκ",
+          ],
+          days: [
+            "Κυριακή",
+            "Δευτέρα",
+            "Τρίτη",
+            "Τετάρτη",
+            "Πέμπτη",
+            "Παρασκευή",
+            "Σάββατο",
+          ],
+          shortDays: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+          toolbar: {
+            exportToSVG: "Λήψη SVG",
+            exportToPNG: "Λήψη PNG",
+            menu: "Menu",
+            selection: "Επιλογή",
+            selectionZoom: "Μεγένθυση βάση επιλογής",
+            zoomIn: "Μεγένθυνση",
+            zoomOut: "Σμίκρυνση",
+            pan: "Μετατόπιση",
+            reset: "Επαναφορά μεγένθυνσης",
+          },
+        },
+      },
+    ],
+    defaultLocale: "el",
+  };
+
+  var options = {
+    chart: {
+      height: 380,
+      width: "100%",
+      type: "area",
+      animations: {
+        initialAnimation: {
+          enabled: false,
+        },
+      },
+    },
+    series: [
+      {
+        name: "Series 1",
+        data: [
+          [1486684800000, 34],
+          [1486771200000, 43],
+          [1486857600000, 31],
+          [1486944000000, 43],
+          [1487030400000, 33],
+          [1487116800000, 52],
+        ],
+      },
+    ],
+    xaxis: {
+      type: "datetime",
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+  chart.render();
+</script>
