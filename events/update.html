@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - Updated Event Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <p>Last updated: <span id="lastUpdatedTime">Never</span></p>
+
+    <script>
+      // Initial dummy data
+      let counter = 10;
+      let options = {
+        chart: {
+          type: "line",
+          height: 350,
+          animations: {
+            enabled: true,
+            easing: "easeinout",
+            speed: 500,
+          },
+          events: {
+            updated: function (chartContext, config) {
+              const now = new Date().toLocaleTimeString();
+              document.getElementById("lastUpdatedTime").textContent = now;
+              console.log("Chart updated at:", now);
+            },
+          },
+        },
+        series: [
+          {
+            name: "Random Data",
+            data: Array.from({ length: 10 }, (_, i) => i * 10),
+          },
+        ],
+        xaxis: {
+          categories: Array.from({ length: 10 }, (_, i) => `Point ${i}`),
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+
+      // Simulate dynamic data updates every 5 seconds
+      setInterval(() => {
+        counter++;
+        const newSeries = [
+          {
+            name: "Random Data",
+            data: Array.from({ length: 10 }, () =>
+              Math.floor(Math.random() * 100)
+            ),
+          },
+        ];
+        chart.updateSeries(newSeries);
+      }, 5000);
+    </script>
+  </body>
+</html>

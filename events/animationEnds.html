@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - animationEnd Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p>Status: <span id="status">Waiting for animation...</span></p>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+          animations: {
+            enabled: true,
+            easing: "easeinout",
+            speed: 1000,
+          },
+          events: {
+            animationEnd: function (chartContext, options) {
+              const message =
+                "✅ Animation finished at: " + new Date().toLocaleTimeString();
+              document.getElementById("status").textContent = message;
+              console.log(message);
+            },
+          },
+        },
+        series: [
+          {
+            name: "Revenue",
+            data: [10, 20, 30, 25, 40],
+          },
+        ],
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
