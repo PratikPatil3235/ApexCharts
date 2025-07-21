@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>beforeResetZoom Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <h3>Zoom the chart, then click "Reset Zoom"</h3>
+    <div id="chart"></div>
+
+    <script>
+      const resetMin = new Date("2023-01-03").getTime();
+      const resetMax = new Date("2023-01-08").getTime();
+
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          zoom: {
+            enabled: true,
+            type: "x",
+          },
+          events: {
+            beforeResetZoom: function (chartContext, opts) {
+              return {
+                xaxis: {
+                  min: resetMin,
+                  max: resetMax,
+                },
+              };
+            },
+          },
+        },
+        series: [
+          {
+            name: "Revenue",
+            data: [
+              { x: new Date("2023-01-01").getTime(), y: 10 },
+              { x: new Date("2023-01-02").getTime(), y: 20 },
+              { x: new Date("2023-01-03").getTime(), y: 15 },
+              { x: new Date("2023-01-04").getTime(), y: 25 },
+              { x: new Date("2023-01-05").getTime(), y: 30 },
+              { x: new Date("2023-01-06").getTime(), y: 28 },
+              { x: new Date("2023-01-07").getTime(), y: 35 },
+              { x: new Date("2023-01-08").getTime(), y: 32 },
+              { x: new Date("2023-01-09").getTime(), y: 40 },
+            ],
+          },
+        ],
+        xaxis: {
+          type: "datetime",
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
