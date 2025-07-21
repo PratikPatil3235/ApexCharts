@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <title>Localization ...</title>
+    <title>ApexCharts Hindi Locale</title>
     <style>
       #chart {
         max-width: 650px;
@@ -20,77 +20,71 @@
   Apex.chart = {
     locales: [
       {
-        name: "el",
+        name: "hi", // Hindi
         options: {
           months: [
-            "Ιανουάριος",
-            "Φεβρουάριος",
-            "Μάρτιος",
-            "Απρίλιος",
-            "Μάιος",
-            "Ιούνιος",
-            "Ιούλιος",
-            "Αύγουστος",
-            "Σεπτέμβριος",
-            "Οκτώβριος",
-            "Νοέμβριος",
-            "Δεκέμβριος",
+            "जनवरी",
+            "फ़रवरी",
+            "मार्च",
+            "अप्रैल",
+            "मई",
+            "जून",
+            "जुलाई",
+            "अगस्त",
+            "सितंबर",
+            "अक्टूबर",
+            "नवंबर",
+            "दिसंबर",
           ],
           shortMonths: [
-            "Ιαν",
-            "Φευ",
-            "Μαρ",
-            "Απρ",
-            "Μάι",
-            "Ιουν",
-            "Ιουλ",
-            "Αυγ",
-            "Σεπ",
-            "Οκτ",
-            "Νοε",
-            "Δεκ",
+            "जन",
+            "फ़र",
+            "मार्च",
+            "अप्रै",
+            "मई",
+            "जून",
+            "जुल",
+            "अग",
+            "सितं",
+            "अक्टू",
+            "नवं",
+            "दिसं",
           ],
           days: [
-            "Κυριακή",
-            "Δευτέρα",
-            "Τρίτη",
-            "Τετάρτη",
-            "Πέμπτη",
-            "Παρασκευή",
-            "Σάββατο",
+            "रविवार",
+            "सोमवार",
+            "मंगलवार",
+            "बुधवार",
+            "गुरुवार",
+            "शुक्रवार",
+            "शनिवार",
           ],
-          shortDays: ["Κυρ", "Δευ", "Τρι", "Τετ", "Πεμ", "Παρ", "Σαβ"],
+          shortDays: ["रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"],
           toolbar: {
-            exportToSVG: "Λήψη SVG",
-            exportToPNG: "Λήψη PNG",
-            menu: "Menu",
-            selection: "Επιλογή",
-            selectionZoom: "Μεγένθυση βάση επιλογής",
-            zoomIn: "Μεγένθυνση",
-            zoomOut: "Σμίκρυνση",
-            pan: "Μετατόπιση",
-            reset: "Επαναφορά μεγένθυνσης",
+            exportToSVG: "SVG डाउनलोड करें",
+            exportToPNG: "PNG डाउनलोड करें",
+            menu: "मेनू",
+            selection: "चयन",
+            selectionZoom: "ज़ूम चयन",
+            zoomIn: "ज़ूम इन",
+            zoomOut: "ज़ूम आउट",
+            pan: "खींचें",
+            reset: "रीसेट ज़ूम",
           },
         },
       },
     ],
-    defaultLocale: "el",
+    defaultLocale: "hi",
   };
 
-  var options = {
+  const options = {
     chart: {
-      height: 380,
-      width: "100%",
       type: "area",
-      animations: {
-        initialAnimation: {
-          enabled: false,
-        },
-      },
+      height: 380,
     },
     series: [
       {
-        name: "Series 1",
+        name: "श्रृंखला 1",
         data: [
           [1486684800000, 34],
           [1486771200000, 43],
@@ -106,7 +100,6 @@
     },
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-
+  const chart = new ApexCharts(document.querySelector("#chart"), options);
   chart.render();
 </script>
