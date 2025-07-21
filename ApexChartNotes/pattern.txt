@@ -1,0 +1,9 @@
+fill: {
+  type: 'pattern',
+  pattern: {
+    style: 'verticalLines',
+    width: 6,
+    height: 6,
+    strokeWidth: 2
+  }
+}

@@ -1,0 +1,8 @@
+fill: {
+  type: 'image',
+  image: {
+    src: ['/path/to/image1.png', 'path/to/image2.jpg'],
+    width: undefined,  // optional
+    height: undefined  //optional
+  }
+}
