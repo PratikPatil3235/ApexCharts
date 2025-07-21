@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>xAxisLabelClick Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p id="log">Click on any X-axis label</p>
+    <div id="chart"></div>
+
+    <script>
+      const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+          events: {
+            xAxisLabelClick: function (event, chartContext, opts) {
+              const clickedLabel = opts.label; // The label you clicked, e.g. 'Tue'
+              const labelIndex = opts.labelIndex; // The index in the category array
+
+              const message = `📌 You clicked on X-axis label "${clickedLabel}" at index ${labelIndex}`;
+              document.getElementById("log").textContent = message;
+              console.log(message);
+            },
+          },
+        },
+        series: [
+          {
+            name: "Revenue",
+            data: [10, 20, 30, 25, 35],
+          },
+        ],
+        xaxis: {
+          categories: categories,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
