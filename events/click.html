@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - Chart Click Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p id="clickResult">Click on a bar or anywhere on the chart</p>
+    <div id="chart"></div>
+
+    <script>
+      const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+      const values = [12, 18, 25, 30, 22];
+
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+          events: {
+            click: function (event, chartContext, opts) {
+              console.log(event);
+              console.log(opts);
+              const seriesIndex = opts.seriesIndex;
+              const dataPointIndex = opts.dataPointIndex;
+
+              // If user clicked on a bar
+              if (seriesIndex !== -1 && dataPointIndex !== -1) {
+                const day = categories[dataPointIndex];
+                const value = values[dataPointIndex];
+                document.getElementById(
+                  "clickResult"
+                ).textContent = `🟢 You clicked on ${day}: ${value}`;
+              } else {
+                document.getElementById("clickResult").textContent =
+                  "⚪ You clicked on an empty area of the chart.";
+              }
+
+              // Log full details to console
+              console.log("Click event details:", {
+                seriesIndex,
+                dataPointIndex,
+                event,
+              });
+            },
+          },
+        },
+        series: [
+          {
+            name: "Visitors",
+            data: values,
+          },
+        ],
+        xaxis: {
+          categories: categories,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
