@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ApexCharts Multiple Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- ✅ CDN -->
+    <style>
+      .chart-container {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ✅ Chart containers -->
+    <div class="chart-container" id="chart-line"></div>
+    <div class="chart-container" id="chart-line2"></div>
+    <div class="chart-container" id="chart-area"></div>
+    <div class="chart-container" id="chart-small"></div>
+    <div class="chart-container" id="chart-small2"></div>
+  </body>
+</html>
+
+<script>
+  // ✅ Dummy function to generate random series data
+  function generateDayWiseTimeSeries(startDate, count, { min, max }) {
+    let series = [];
+    for (let i = 0; i < count; i++) {
+      const x = startDate + i * 86400000;
+      const y = Math.floor(Math.random() * (max - min + 1)) + min;
+      series.push([x, y]);
+    }
+    return series;
+  }
+
+  // ✅ Chart 1
+  var options = {
+    series: [
+      {
+        data: generateDayWiseTimeSeries(new Date("11 Feb 2017").getTime(), 20, {
+          min: 10,
+          max: 60,
+        }),
+      },
+    ],
+    chart: {
+      id: "fb",
+      group: "social",
+      type: "line",
+      height: 160,
+    },
+    colors: ["#008FFB"],
+    xaxis: {
+      type: "datetime",
+      labels: {
+        format: "dd MMM yyyy",
+      },
+    },
+  };
+  new ApexCharts(document.querySelector("#chart-line"), options).render();
+
+  // ✅ Chart 2
+  var optionsLine2 = {
+    series: [
+      {
+        data: generateDayWiseTimeSeries(new Date("11 Feb 2017").getTime(), 20, {
+          min: 10,
+          max: 30,
+        }),
+      },
+    ],
+    chart: {
+      id: "tw",
+      group: "social",
+      type: "line",
+      height: 160,
+    },
+    colors: ["#546E7A"],
+    xaxis: {
+      type: "datetime",
+      labels: {
+        format: "dd MMM yyyy", // Only date format like "11 Feb 2017"
+      },
+    },
+  };
+  new ApexCharts(document.querySelector("#chart-line2"), optionsLine2).render();
+
+  // ✅ Chart 3
+  var optionsArea = {
+    series: [
+      {
+        data: generateDayWiseTimeSeries(new Date("11 Feb 2017").getTime(), 20, {
+          min: 10,
+          max: 60,
+        }),
+      },
+    ],
+    chart: {
+      id: "yt",
+      group: "social",
+      type: "area",
+      height: 160,
+    },
+    colors: ["#00E396"],
+    xaxis: {
+      type: "datetime",
+      labels: {
+        format: "dd MMM yyyy", // Only date format like "11 Feb 2017"
+      },
+    },
+  };
+  new ApexCharts(document.querySelector("#chart-area"), optionsArea).render();
+
+  // ✅ Chart 4
+  var optionsSmall = {
+    series: [
+      {
+        data: generateDayWiseTimeSeries(new Date("11 Feb 2017").getTime(), 20, {
+          min: 10,
+          max: 60,
+        }),
+      },
+    ],
+    chart: {
+      id: "ig",
+      group: "social",
+      type: "area",
+      height: 160,
+      width: 300,
+    },
+    colors: ["#008FFB"],
+    xaxis: {
+      type: "datetime",
+      labels: {
+        format: "dd MMM yyyy", // Only date format like "11 Feb 2017"
+      },
+    },
+  };
+  new ApexCharts(document.querySelector("#chart-small"), optionsSmall).render();
+
+  // ✅ Chart 5
+  var optionsSmall2 = {
+    series: [
+      {
+        data: generateDayWiseTimeSeries(new Date("11 Feb 2017").getTime(), 20, {
+          min: 10,
+          max: 60,
+        }),
+      },
+    ],
+    chart: {
+      id: "li",
+      group: "social",
+      type: "area",
+      height: 160,
+      width: 300,
+    },
+    colors: ["#546E7A"],
+    xaxis: {
+      type: "datetime",
+      labels: {
+        format: "dd MMM yyyy", // Only date format like "11 Feb 2017"
+      },
+    },
+  };
+  new ApexCharts(
+    document.querySelector("#chart-small2"),
+    optionsSmall2
+  ).render();
+</script>
