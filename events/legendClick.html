@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - legendClick Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p id="status">Click on any legend item below the chart.</p>
+    <div id="chart"></div>
+
+    <script>
+      const seriesData = [
+        {
+          name: "Sales",
+          data: [20, 30, 40, 35, 50],
+        },
+        {
+          name: "Profit",
+          data: [10, 15, 25, 20, 30],
+        },
+      ];
+
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          events: {
+            legendClick: function (chartContext, seriesIndex, config) {
+              const seriesName = config.config.series[seriesIndex].name;
+              const msg = `🖱️ You clicked on legend: "${seriesName}" (Series Index: ${seriesIndex})`;
+              document.getElementById("status").textContent = msg;
+              console.log(msg);
+            },
+          },
+        },
+        series: seriesData,
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
