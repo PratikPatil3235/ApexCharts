@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Highlighten Series</title>
+    <style>
+      #chart {
+        max-width: 650px;
+        position: relative;
+        margin: 35px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+  </body>
+</html>
+<script>
+  var series = [
+    {
+      name: "Dataset 1",
+      data: [12, 42, 31, 56, 25, 61, 38, 29, 45, 32],
+    },
+    {
+      name: "Dataset 2",
+      data: [28, 35, 55, 20, 48, 30, 60, 22, 49, 31],
+    },
+    {
+      name: "Dataset 3",
+      data: [22, 52, 25, 65, 34, 50, 28, 47, 39, 20],
+    },
+    {
+      name: "Dataset 4",
+      data: [33, 29, 44, 50, 21, 39, 59, 28, 40, 55],
+    },
+    {
+      name: "Dataset 5",
+      data: [45, 20, 50, 33, 60, 22, 40, 34, 58, 42],
+    },
+  ];
+  var options = {
+    chart: {
+      type: "line",
+      height: 400,
+      stacked: true,
+      zoom: {
+        allowMouseWheelZoom: true,
+      },
+    },
+    series,
+    xaxis: {
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+      ],
+    },
+    title: {
+      align: "center",
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+
+  var currIndex = 0;
+  window.setInterval(() => {
+    if (currIndex > 4) {
+      currIndex = 0;
+    }
+    chart.highlightSeries(series[currIndex].name);
+    currIndex++;
+  }, 1500);
+</script>
