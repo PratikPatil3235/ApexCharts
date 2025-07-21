@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dataPointMouseLeave Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <h3 id="log">Hover over a data point to see info</h3>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+          events: {
+            dataPointMouseEnter: function (event, chartContext, opts) {
+              const seriesIndex = opts.seriesIndex;
+              const dataPointIndex = opts.dataPointIndex;
+              const value =
+                opts.w.config.series[seriesIndex].data[dataPointIndex];
+
+              const message = `👆 Hovered on series ${seriesIndex}, point ${dataPointIndex} (value: ${value})`;
+              document.getElementById("log").textContent = message;
+            },
+            dataPointMouseLeave: function (event, chartContext, opts) {
+              document.getElementById("log").textContent =
+                "Pointer left the data point.";
+            },
+          },
+        },
+        series: [
+          {
+            name: "Revenue",
+            data: [25, 40, 30, 50, 60],
+          },
+        ],
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
