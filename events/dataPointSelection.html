@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Point Selection Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <h3 id="log">Click on a data point</h3>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "bar",
+          height: 350,
+          events: {
+            dataPointSelection: function (event, chartContext, opts) {
+              const seriesIndex = opts.seriesIndex;
+              const dataPointIndex = opts.dataPointIndex;
+              const value =
+                opts.w.config.series[seriesIndex].data[dataPointIndex];
+
+              const message = `📌 You clicked on series ${seriesIndex}, data point ${dataPointIndex} (value: ${value})`;
+              console.log(message);
+              document.getElementById("log").textContent = message;
+            },
+          },
+        },
+        series: [
+          {
+            name: "Sales",
+            data: [10, 20, 30, 40, 50],
+          },
+          {
+            name: "Analysis",
+            data: [43, 56, 23, 34, 19],
+          },
+        ],
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
