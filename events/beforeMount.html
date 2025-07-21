@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts - beforeMount Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p>Status: <span id="status">Preparing chart...</span></p>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          events: {
+            beforeMount: function (chartContext, config) {
+              console.log(chartContext);
+              console.log(`config: ${config}`);
+              const time = new Date().toLocaleTimeString();
+              const message = `⚙️ Chart is about to mount at ${time}`;
+              document.getElementById("status").textContent = message;
+              console.log(message);
+            },
+          },
+        },
+        series: [
+          {
+            name: "Temperature",
+            data: [22, 24, 19, 23, 25],
+          },
+        ],
+        xaxis: {
+          categories: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
