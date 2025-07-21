@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts Marker Click Fixed</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <p id="status">Click on any marker...</p>
+    <div id="chart"></div>
+
+    <script>
+      const categories = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+      const series = [
+        {
+          name: "Sales",
+          data: [10, 20, 30, 25, 35],
+        },
+        {
+          name: "Profit",
+          data: [5, 15, 10, 20, 25],
+        },
+      ];
+
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          events: {
+            markerClick: function (event, chartContext, opts) {
+              const seriesIndex = opts.seriesIndex;
+              const dataPointIndex = opts.dataPointIndex;
+
+              const value = series[seriesIndex].data[dataPointIndex];
+              const name = series[seriesIndex].name;
+              const category = categories[dataPointIndex];
+
+              const message = `📍 Marker clicked: "${name}" at ${category} → ${value}`;
+              document.getElementById("status").textContent = message;
+              console.log(message);
+            },
+          },
+        },
+        series: series,
+        xaxis: {
+          categories: categories,
+        },
+        markers: {
+          size: 6,
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
