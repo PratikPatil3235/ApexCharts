@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <p id="log"></p>
+
+    <script>
+      const options = {
+        chart: {
+          type: "line", 
+          height: 350,
+          width: "80%",
+          events: {
+            scrolled: function (chartContext, { xaxis }) {
+                console.log("scrolled")
+              const message = `📦 Scrolled to X-axis range: ${xaxis.min} - ${xaxis.max}`;
+              console.log(message);
+              document.getElementById("log").textContent = message;
+            },
+          },
+        },
+        series: [
+          {
+            name: "Sales",
+            data: Array.from({ length: 100 }, (_, i) => i + 1),
+          },
+        ],
+        xaxis: {
+          categories: Array.from({ length: 100 }, (_, i) => `Day ${i + 1}`),
+          scrollbar: {
+            enabled: true,
+          },
+          min: 0,
+          max: 20, 
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
