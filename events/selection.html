@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ApexCharts Selection Event</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      const options = {
+        chart: {
+          type: "line",
+          height: 350,
+          zoom: {
+            enabled: true, // This enables zoom
+            type: "x", // Dragging only in x direction
+            autoScaleYaxis: true, // Automatically scale y-axis on zoom
+          },
+          events: {
+            selection: function (chartContext, { xaxis, yaxis }) {
+              console.log("Selection triggered!");
+              console.log("X-axis range:", xaxis.min, "to", xaxis.max);
+              console.log("Y-axis range:", yaxis[0].min, "to", yaxis[0].max);
+              alert(
+                `📊 Selected X Range:\nFrom ${new Date(
+                  xaxis.min
+                )} to ${new Date(xaxis.max)}`
+              );
+            },
+          },
+        },
+        series: [
+          {
+            name: "Data",
+            data: [
+              [new Date("2025-07-01").getTime(), 10],
+              [new Date("2025-07-02").getTime(), 20],
+              [new Date("2025-07-03").getTime(), 15],
+              [new Date("2025-07-04").getTime(), 25],
+              [new Date("2025-07-05").getTime(), 18],
+            ],
+          },
+        ],
+        xaxis: {
+          type: "datetime",
+        },
+      };
+
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>
