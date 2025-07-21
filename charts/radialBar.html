@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <div id="chart1"></div>
+  </body>
+</html>
+<script>
+  var options = {
+    chart: {
+      height: 280,
+      type: "radialBar",
+    },
+
+    series: [67],
+    colors: ["#20E647"],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 0,
+          size: "70%",
+          background: "#293450",
+        },
+        track: {
+          dropShadow: {
+            enabled: true,
+            top: 2,
+            left: 0,
+            blur: 4,
+            opacity: 0.15,
+          },
+        },
+        dataLabels: {
+          name: {
+            offsetY: -10,
+            color: "#fff",
+            fontSize: "13px",
+          },
+          value: {
+            color: "#fff",
+            fontSize: "30px",
+            show: true,
+          },
+        },
+      },
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shade: "dark",
+        type: "vertical",
+        gradientToColors: ["#87D4F9"],
+        stops: [0, 100],
+      },
+    },
+    stroke: {
+      lineCap: "round",
+    },
+    labels: ["Progress"],
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+  chart.render();
+
+  var options1 = {
+    chart: {
+      height: 280,
+      type: "radialBar",
+    },
+    series: [67, 84, 97, 61],
+    plotOptions: {
+      radialBar: {
+        dataLabels: {
+          total: {
+            show: true,
+            label: "TOTAL",
+          },
+        },
+      },
+    },
+    labels: ["TEAM A", "TEAM B", "TEAM C", "TEAM D"],
+  };
+
+  new ApexCharts(document.querySelector("#chart1"), options1).render();
+</script>
