@@ -13,18 +13,15 @@
 
         .card {
           padding: 20px !important;
+          margin-top: 0px !important;
         }
-
-        .card h2 {
-          font-size: 16px !important;
-          line-height: 24px !important;
-        }
-
         .card p {
           font-size: 12px !important;
           line-height: 18px !important;
         }
-
+        .opt-request {
+          padding-top: 0px !important;
+        }
         .title {
           font-size: 22px !important;
           line-height: 30px !important;
@@ -43,13 +40,10 @@
           width: 180px !important;
           height: auto !important;
         }
-        
-        .card-overlap {
-          margin-top: -30px !important;
-        }
       }
     </style>
   </head>
+
   <body
     style="
       margin: 0;
@@ -74,7 +68,7 @@
             cellpadding="0"
             cellspacing="0"
             border="0"
-            bgcolor="#ffffff"
+            bgcoopt-requestlor="#ffffff"
             style="padding: 20px 20px 0px 20px"
             class="container"
           >
@@ -91,14 +85,14 @@
             </tr>
           </table>
 
-          <!-- Image Section with reduced bottom padding -->
+          <!-- Image Section -->
           <table
             width="600"
             cellpadding="0"
             cellspacing="0"
             border="0"
             bgcolor="#ffffff"
-            style="padding: 20px 20px 5px 20px"
+            style="padding: 20px"
             class="container"
           >
             <tr>
@@ -117,19 +111,96 @@
               </td>
             </tr>
           </table>
-
-          <!-- Overlapping Card Section -->
+          <!-- spacing between image and info card  -->
           <table
             width="600"
             cellpadding="0"
             cellspacing="0"
             border="0"
             bgcolor="#ffffff"
-            style="padding: 0 50px; margin-top: -46px;"
-            class="container card-overlap"
+            class="container"
+            style="
+              padding: 0px 30px 30px 30px;
+              height: 70px;
+              position: relative;
+            "
           >
             <tr>
-              <td align="center">
+              <td
+                align="left"
+                style="
+                  padding: 0;
+                  position: absolute;
+                  top: 0px;
+                  left: 50px;
+                  right: 50px;
+                  bottom: 0px;
+                "
+              >
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    background-color: #ffffff;
+                    padding: 10px 40px 20px 40px;
+                    border-top: 2px solid #0e0e0e;
+                    border-left: 2px solid #0e0e0e;
+                    border-right: 2px solid #0e0e0e;
+                    border-bottom: none;
+                    border-radius: 3px;
+                  "
+                  class="card"
+                >
+                  <tr>
+                    <td>
+                      <h2
+                        style="
+                          color: #1bab78;
+                          font-weight: 600;
+                          margin: 0;
+                          padding-top: 5px;
+                          font-size: 32px;
+                          line-height: 38px;
+                        "
+                        class="opt-request"
+                      >
+                        OTP Request
+                      </h2>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Info Section with lifted card effect and left-aligned text -->
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            bgcolor="#2C5E59"
+            style="
+              padding: 0px 30px 30px 30px;
+              height: 250px;
+              position: relative;
+
+            "
+            class="container"
+          >
+            <tr >
+              <td
+                align="center"
+                style="
+                  padding: 0;
+                  position: absolute;
+                  top: 0px;
+                  left: 50px;
+                  right: 50px;
+                "
+              >
                 <table
                   width="100%"
                   cellpadding="0"
@@ -138,26 +209,17 @@
                   bgcolor="#ffffff"
                   class="card"
                   style="
-                    border-radius: 8px;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    margin-top: 0px;
                     padding: 10px 40px 20px 40px;
-                    border: 1px solid #e0e0e0;
+                    border-bottom: 2px solid #0e0e0e;
+                    border-left: 2px solid #0e0e0e;
+                    border-right: 2px solid #0e0e0e;
+                    border-radius: 3px;
+                    border-top: none;
                   "
                 >
                   <tr>
                     <td align="left">
-                      <h2
-                        style="
-                          color: #1bab78;
-                          font-weight: 600;
-                          margin-bottom: 10px;
-                          margin-top: 0;
-                          font-size: 32px;
-                          line-height: 38px;
-                        "
-                      >
-                        OTP Request
-                      </h2>
                       <p
                         style="
                           margin: 15px 0 10px 0;
@@ -186,21 +248,6 @@
                   </tr>
                 </table>
               </td>
-            </tr>
-          </table>
-
-          <!-- Background Section -->
-          <table
-            width="600"
-            cellpadding="0"
-            cellspacing="0"
-            border="0"
-            bgcolor="#2C5E59"
-            style="padding: 50px 20px 30px 20px;"
-            class="container"
-          >
-            <tr>
-              <td style="height: 1px; font-size: 1px; line-height: 1px;">&nbsp;</td>
             </tr>
           </table>
 
