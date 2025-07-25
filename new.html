@@ -15,16 +15,6 @@
           padding: 20px !important;
         }
 
-        .card h2 {
-          font-size: 16px !important;
-          line-height: 24px !important;
-        }
-
-        .card p {
-          font-size: 12px !important;
-          line-height: 18px !important;
-        }
-
         .title {
           font-size: 22px !important;
           line-height: 30px !important;
@@ -43,11 +33,6 @@
           width: 24px !important;
           height: 24px !important;
         }
-
-        .responsive-img {
-          width: 180px !important;
-          height: auto !important;
-        }
       }
     </style>
   </head>
@@ -65,7 +50,6 @@
       cellspacing="0"
       border="0"
       bgcolor="#f4f4f4"
-      style="margin: 0; padding: 0"
     >
       <tr>
         <td align="center" style="background-color: #ffffff">
@@ -107,10 +91,9 @@
                 <a href="#">
                   <img
                     src="https://keyword-ranking.sgp1.cdn.digitaloceanspaces.com/cp-images/Frame%209801.png"
-                    alt="sendding otp"
-                    width="274px"
-                    height="250px"
-                    class="responsive-img"
+                    alt="sending otp"
+                    width="274"
+                    height="250"
                     style="max-width: 100%; height: auto; display: block"
                     onerror="this.style.display='none';"
                   />
@@ -118,41 +101,19 @@
               </td>
             </tr>
           </table>
-          <!-- spacing between image and info card  -->
-          <table
-            width="600"
-            cellpadding="0"
-            cellspacing="0"
-            border="0"
-            class="container"
-          >
-            <tr>
-              <td style="height: 20px; line-height: 20px; font-size: 0">
-                &nbsp;
-              </td>
-            </tr>
-          </table>
-          <!-- Info Section with lifted card effect and left-aligned text -->
+
+          <!-- Info Section with lifted card effect -->
           <table
             width="600"
             cellpadding="0"
             cellspacing="0"
             border="0"
             bgcolor="#2C5E59"
-            style="padding: 30px; height: 300px; position: relative"
+            style="padding: 30px; height: 300px"
             class="container"
           >
             <tr>
-              <td
-                align="center"
-                style="
-                  padding: 0;
-                  position: absolute;
-                  top: -30px;
-                  left: 50px;
-                  right: 50px;
-                "
-              >
+              <td align="center" style="padding: 0">
                 <table
                   width="100%"
                   cellpadding="0"
@@ -161,7 +122,7 @@
                   bgcolor="#ffffff"
                   class="card"
                   style="
-                    border-radius: 8px;
+                    border-radius: 15px;
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                     padding: 20px 40px;
                   "
@@ -169,6 +130,7 @@
                   <tr>
                     <td align="left">
                       <h2
+                        class="title"
                         style="
                           color: #1bab78;
                           font-weight: 600;
@@ -186,10 +148,12 @@
                           font-size: 16px;
                           line-height: 24px;
                         "
+                        class="text"
                       >
                         Hello ${customer.name},
                       </p>
                       <p
+                        class="text"
                         style="
                           color: #333333;
                           font-size: 15px;
@@ -198,18 +162,19 @@
                         "
                       >
                         To continue securely, please use the following one-time
+                        <br />
                         password (OTP): <strong> ${customer.otp}</strong><br />
                         This OTP is valid for the next 10 minutes and should not
-                        be 
+                        be <br />
                         shared with anyone. If you didn't request this code, you
-                        can
+                        can <br />
                         safely ignore this email.
                       </p>
                     </td>
                   </tr>
                 </table>
               </td>
-            </tr> 
+            </tr>
           </table>
 
           <!-- Footer -->
@@ -229,6 +194,7 @@
                   cellspacing="0"
                   border="0"
                   style="margin: 10px 0"
+                  class="social-icons"
                 >
                   <tr>
                     <td style="padding-right: 8px">
@@ -241,6 +207,7 @@
                           alt="Instagram"
                           width="32"
                           height="32"
+                          style="display: block"
                         />
                       </a>
                     </td>
@@ -254,6 +221,7 @@
                           alt="YouTube"
                           width="32"
                           height="32"
+                          style="display: block"
                         />
                       </a>
                     </td>
@@ -267,6 +235,7 @@
                           alt="LinkedIn"
                           width="32"
                           height="32"
+                          style="display: block"
                         />
                       </a>
                     </td>
