@@ -39,10 +39,6 @@
           max-width: 150px !important;
         }
 
-        .social-icons img {
-          width: 24px !important;
-          height: 24px !important;
-        }
 
         .responsive-img {
           width: 180px !important;
@@ -139,7 +135,7 @@
             cellspacing="0"
             border="0"
             bgcolor="#2C5E59"
-            style="padding: 30px; height: 300px; position: relative"
+            style="padding: 30px; height: 250px; position: relative"
             class="container"
           >
             <tr>
@@ -148,7 +144,7 @@
                 style="
                   padding: 0;
                   position: absolute;
-                  top: -30px;
+                  top: -46px;
                   left: 50px;
                   right: 50px;
                 "
@@ -163,7 +159,7 @@
                   style="
                     border-radius: 8px;
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    padding: 20px 40px;
+                    padding: 10px 40px 20px 40px;
                   "
                 >
                   <tr>
@@ -173,18 +169,19 @@
                           color: #1bab78;
                           font-weight: 600;
                           margin-bottom: 10px;
-                          font-size: 28px;
-                          line-height: 36px;
+                          margin-top: 0;
+                          font-size: 32px;
+                          line-height: 38px;
                         "
                       >
                         OTP Request
                       </h2>
                       <p
                         style="
-                          margin: 10px 0 10px 0;
+                          margin: 15px 0 10px 0;
                           font-weight: 600;
-                          font-size: 16px;
-                          line-height: 24px;
+                          font-size: 20px;
+                          line-height: 26px;
                         "
                       >
                         Hello ${customer.name},
@@ -192,24 +189,22 @@
                       <p
                         style="
                           color: #333333;
-                          font-size: 15px;
-                          line-height: 24px;
+                          font-size: 18px;
+                          line-height: 26px;
                           margin: 0 0 15px 0;
                         "
                       >
                         To continue securely, please use the following one-time
                         password (OTP): <strong> ${customer.otp}</strong><br />
                         This OTP is valid for the next 10 minutes and should not
-                        be 
-                        shared with anyone. If you didn't request this code, you
-                        can
-                        safely ignore this email.
+                        be shared with anyone. If you didn't request this code,
+                        you can safely ignore this email.
                       </p>
                     </td>
                   </tr>
                 </table>
               </td>
-            </tr> 
+            </tr>
           </table>
 
           <!-- Footer -->
